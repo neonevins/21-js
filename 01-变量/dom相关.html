@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 300px;
+      height: 300px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">hello</div>
+  <script>
+    /**
+     * JS代码可以直接在控制台中运行
+     * 获取页面的元素: DOM相关的知识: document object model
+     *    获取页面的元素, 和对元素的某些内容进行修改
+     * 要对元素进行控制, 在JS中用什么容器进行装载
+     * 通过某种方式进行获取 => CSS选择器的方式
+     * 关于文档对象模型所有的操作, 都是从 document 开始的
+     *
+     * document指得就是这个页面中所有的标签元素的整体
+     *  要获取元素都要从document出发
+     *  querySelector
+     *    方法: 执行 帮我们找到满足条件的第一个元素
+     *  querySelectorAll
+     *    方法: 帮我们找到满足条件的所有的元素
+     *
+     *  修改元素:
+     *    1. 修改元素的内容
+     *      标签内的文本内容 元素.innerHTML = 修改内容
+     *    2. 修改元素的样式
+     *      元素.style.width = 500
+     *
+     **/
+      // 从文档中通过.box这个类名找到对应的页面的元素, 赋值给box这个变量
+    let box = document.querySelector(".box")
+
+    box.innerHTML = "world"
+
+    box.style.width = "500px"
+
+    box.style.backgroundColor = "rgba(181,42,35,0.91)"
+
+    // console.log(box)
+    // 学会举一反三, 尝试修改一下元素的别的样式
+    //
+
+
+
+  </script>
+</body>
+</html>

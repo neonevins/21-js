@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 300px;
+      height: 300px;
+      background-color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">文字</div>
+  <script>
+    // 修改宽高 背景颜色 和字体颜色 字体大小 => 盒子
+    // querySelector 第一个元素
+    // .style方式添加的样式 是行内样式, 优先级最高的
+    // let box = document.querySelector(".box")
+    // box.style.width = "500px"
+    // box.style.height = "100px"
+
+    // let boxList = document.querySelectorAll(".box")
+
+    // boxList.style.color = "white"
+    // boxList[1].style.color = "white"
+    // boxList[2].style.color = "white"
+    //
+    // boxList.style.color = "white"
+
+    // console.log(boxList) 这是一个 类数组(一系列有顺序的元素的组合)
+    // 不是单个元素, 只有单个元素才能使用style的方法
+    // 在程序的世界中 数数: 是从0开始数的
+
+    let box = document.querySelector(".box")
+
+    // box.innerHTML = "<img src='https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1184978622,3090302907&fm=26&gp=0.jpg'>"
+
+    /**
+     * 双引号里面不能有双引号 单引号里面不能有单引号
+     *
+     * querySelectorAll => 所有的盒子进行样式操作
+     *   细节: 不能选择伪元素 => 伪元素只是css创建的假的元素, 所以在html中本来是不存在的
+     *
+     * innerHTML 和 innerText 这两个的区别
+     *   相同点: 元素里面的内容 增加 修改 删除
+     *
+     *   不同:
+     *      innerText: 不会进行html解析
+     *      innerHTML: 会解析html
+     *
+     */
+
+    /**
+     * 高难度操作: 对用户行为进行处理 => 特指点击行为
+     *
+     * 1. 点击盒子, 获取这个盒子
+     *    onclick是盒子的点击的响应操作 null 不存在的
+     *    function: 相当于一张带有操作手册的小纸条
+     *      当点击的时候 会执行里面的代码
+     * 2. 给盒子添加一条样式
+     *
+     * */
+
+    box.onclick = function (){
+      box.innerHTML = "<img src='https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1184978622,3090302907&fm=26&gp=0.jpg'>"
+      console.log("修改完成")
+    }
+
+
+    /**
+     * 作业: 左右两边分别有一个盒子, 左边红色, 右边蓝色 (背景颜色)
+     *    点击左边的时候 左边变成红色右边变成蓝色
+     *    点击右边的时候 左边变成蓝色右边变成红色
+     * */
+
+
+    /**
+     * 6大基本数据类型
+     *
+     * */
+
+
+
+
+  </script>
+</body>
+</html>
