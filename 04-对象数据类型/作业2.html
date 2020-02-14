@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<input type="text">
+<input type="button" value="发送">
+<script>
+   /**
+    * 输入内容, 点击发送按钮, 在下面添加一个标签,把内容添加进去
+    * 分析需求:
+    *   1. 输入内容, 点击发送, 提取内容
+    *     点击发送: 就是submit的点击事件
+    *       提取内容: input.value
+    *       清空input的输入内容的
+    *   2. 将提取的内容生成一个标签, 插入
+    */
+   let input = document.querySelector(`input[type="text"]`)
+   let submit = document.querySelector(`input[type="button"]`)
+   submit.onclick = function () {
+     // 他是一个字符串
+     let value = input.value
+     console.log(value)
+     // 插入操作.
+     // 清空内容怎么清空? 请一定保证: 前后数据类型一致
+     //
+      input.value = ""
+   }
+</script>
+</body>
+</html>

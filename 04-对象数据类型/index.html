@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 基本数据类型:
+   *  1. 数值 number
+   *  2. 字符串 string
+   *    \ `` => 重点掌握
+   *  3. 布尔类型 boolean
+   *    true false 相当于开关 判断 比较值
+   *  4. undefined 未定: 声明 访问一个不存在的东西 (属性)
+   *  5. null 空 不存在 清空
+   *  6. 对象: object
+   *     不可能所有的变量都单独的写出来, 一些变量之间应该是有关系的, 我们需要将信息整合起来
+   *     用对象的方式整合
+   *
+   *     每条信息之间用 , 分隔开来 ( 最后一行不需要添加 )
+   *     每条属性后面都要添加一个逗号 ( 最后一行属性也要加上逗号 )
+   *        有一点点的兼容性问题: 很早版本的 ie 不兼容
+   *
+   *     {}
+   *     可以在对象中添加属性(信息) form input
+   *     信息的构成:
+   *        属性名(name): 金钱 推荐大家写字符串, 默认情况可以不写"" 推荐大家不写引号
+   *          JS中只有这个地方字符串可以不写引号
+   *        属性值(value): 156 某个数据类型
+   *        属性名: 属性值
+   *    带有数据类型的值? => 任何值都有自己的数据类型
+   *
+   *    对象的基本操作:
+   *      创建:
+   *        用 {} 形式就直接可以 创建 对象
+   *      对象属性的
+   *        增加: (添加一个不存在的属性)
+   *          1. 对象.属性 = 添加的值 // 这里属性直接是字符串 不是 变量
+   *          2. 创建的时候就添加
+   *          3. 对象[属性] = 值 // 这里属性是变量
+   *        删除:
+   *          delete 对象访问属性的写法 a.b a["c"]
+   *
+   *        修改: 如果有这条属性就修改这条属性, 如果没有就增加
+   *          等于 增加
+   *          1. 对象.属性 = 添加的值 // 这里属性直接是字符串 不是 变量
+   *          2. 创建的时候就添加
+   *          3. 对象[属性] = 值 // 这里属性是变量
+   *        查询:
+   *          等价于添加的左半部分
+   *
+   *
+   *     Uncaught TypeError: Cannot read property 'c' of undefined
+   *     没有办法从undefined中读取 属性
+   *     从c属性前面找到那个对象, 这个对象翻车了
+   *
+   *
+   *
+   * */
+    // 对象创建:
+    // 创建person变量 将一个空对象赋值给person
+    // let a = NaN
+    // let person = {
+    //   name: "银时",
+    //   age: 18,
+    //   type: "teacher",
+    // }
+
+    // let obj = {
+    //   a: {
+    //     b: "文本"
+    //   }
+    // }
+    //
+    // // 从obj.a 中删除 b 属性
+    // delete obj.a.b
+    //
+    // console.log(obj)
+
+
+
+
+    // 如果我想修改一个属性的属性名
+    // 1. 将原来的属性值存下来 2. 删除一个 3. 添加一个
+
+    // 1. 先添加 2. 再删除
+
+
+
+
+    // 给person添加一条name属性, 值是银时
+    // name不是一个变量, 是person属性
+    // person.name = "银时"
+    // person["myName"] = "银时"
+    // let s = "sex"
+    //
+    // person.s = "male"
+
+
+
+
+
+
+  // 银时老师的个人信息
+  //   let person = {
+  //     name: "银时"
+  //   }
+  //
+  //   // 从person对象中访问name属性
+  //   console.log(person.name)
+  //
+  //   // console.log(person)
+
+
+
+
+  // // 假设person是一个人
+  // let person = "小明"
+  // // 需要储存这个人的信息
+  // let personYuwen = 50
+  // let personShuxue = 40
+  // // ...
+  //
+  // //
+  // let person2 = "小红"
+  // let person2Yuwen = 80
+  // let person2Shuxue = 90
+
+  // coding 会使用 小明信息或者是小红的信息
+  // console.log(personYuwen + person2Yuwen)
+
+
+</script>
+</body>
+</html>

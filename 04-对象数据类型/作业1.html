@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+    }
+    .box{
+      float: left;
+      width: 300px;
+      height: 300px;
+    }
+    .red{
+      background-color: red;
+    }
+    .blue{
+      background-color: blue;
+    }
+    .circle{
+      position: absolute;
+      top: 300px;
+      left: 0;
+      width: 300px;
+      height: 300px;
+      background-color: #ccc;
+      border-radius: 50%;
+      transition: .3s;
+    }
+  </style>
+
+
+</head>
+<body>
+  <div class="box red"></div>
+  <div class="box blue"></div>
+  <div class="circle"></div>
+<!--  <script src="./index.js"></script>-->
+  <script>
+    /**
+     * 代码执行顺序:
+     *    从上往下执行的, 先执行的script 元素就没有读取或者渲染
+     * 要求: 正常情况下请把script写到最后面
+     *
+     * 习惯: 先获取到我们所有需要操作的内容.
+     *   一开始就把所有的内容全部获取到
+     *
+     *
+     *   前端; 就是做交互 =>
+     *
+     */
+    // let redBox = document.getElementsByClassName("red") // 不是单个元素, 套一层袋子
+
+    let leftBox = document.querySelector(".red")
+    let rightBox = document.querySelector(".blue")
+    let circleBox = document.querySelector(".circle")
+
+    /**
+     * 需求:
+     *    点击左边, 左红右蓝
+     *    点击右边, 左蓝右红
+     */
+
+    leftBox.onclick = function () {
+      console.log("左边盒子点击")
+      leftBox.style.backgroundColor = "red"
+      rightBox.style.backgroundColor = "blue"
+      circleBox.style.left = "0px"
+    }
+
+    rightBox.onclick = function () {
+      console.log("右边盒子点击")
+      leftBox.style.backgroundColor = "blue"
+      rightBox.style.backgroundColor = "red"
+      circleBox.style.left = "300px"
+    }
+
+
+
+    // console.log(redBox, blueBox)
+
+
+  </script>
+</body>
+</html>

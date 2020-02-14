@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 基本数据类型:
+   *  1. 数值类型 number typeof
+   *    特殊:
+   *      Infinity NaN(0/0 和非数值数据类型进行运算 除了加法) 科学计数法
+   *      得不出正确的结果
+   *    JS语言特性: 运算有可能不会准确
+   *      小数: 没有办法精确表示, 运算 累计误差
+   *      再大就不行了 => 超出了一定的范围表示变成Infinity
+   *      Number.MAX_VALUE
+   *
+   *      Number.MAX_SAFE_INTEGER
+   *      是一个17位的数
+   *      16位数之内进行运算就是准确的值
+   *    进制转换: 请不要轻易在数值前面添加奇怪的符号, 尤其是0
+   *      十进制: 0 1 2 3 4 5 6 7 8 9 一共有10个表示符, 满10进一
+   *      二进制: 0 1一共有2个表示符, 满2进一也是可以表示出来的
+   *        开头是 0b 后面跟上0或者1
+   *      八进制: 0 1 2 3 4 5 6 7 一共有8个表示符,满8进一
+   *        开头是 0 后面跟上 0-7
+   *      十六进制: 0 1 2 3 4 5 6 7 8 9 a b c d e f 一共有16个表示符,满16进一
+   *        开头是 0x 后 0-9 a-f
+   *
+   *      在n进制中 将一个数: abcd 转换成为10进制
+   *       ... a*n^3 + b*n^2 + c*n + d
+   *
+   *       作业: 0476 八进制 => 十进制?
+   *
+   *      10进制转任意进制 (数值).toString(8)
+   *
+   *  字符串: string
+   *    左右两边加上相同的引号的都是字符串
+   *    没有特殊含义的字符, 用它来表示文本
+   *    通常用双引号()来表示, 也可以用单引号
+   *    能不能在字符串中输出: ""
+   *    字符中有一个特殊的符号: 转义符
+   *      \ (反斜杠) 转义符: 能将后面的符号转成别的含义的符号
+   *      / (斜杠)
+   *
+   *      \" 没有特殊含义的引号
+   *
+   *      如何表示: 反斜杠
+   *
+   *    保证严格的写到一行: 通过 \n 换行符换行
+   *      有很多可以转义: 但是今晚不讲: 正则表达式的时候
+   *
+   *    "<\/script>" 特殊的字符串转义一下, 否则会出现识别歧义
+   *
+   *    字符串拼接: 进行字符串拼接 他会按照顺序 挨个组合形成新的字符串
+   *
+   *    有别的拼接方式呢?
+   *      模板字符: 使用反引号的字符串 新出来的功能(es6)
+   *      形成的字符串和正常字符串是一模一样的
+   *      但是有额外的功能
+   *
+   *    让拼接变得更可读
+   *      模板字符串中使用 ${}在{}中可以插入变量
+   *
+   *  3. 布尔类型: boolean
+   *    一共有两个值
+   *    判断某些内容的结果是真是假:
+   *     自己定义true代表了什么 false代表了什么
+   *      true  真 正确 合法 合理
+   *      false 假 错误 无合法 不匹配
+   *
+   *   判断相同: === 返回一个布尔类型的值
+   *
+   *  (在 JS 中)我们所写的任何的(表达式)都会有返回值.
+   *    为什么要有返回值?
+   *    浏览器靠什么判断你的代码执行完了: 代码是否返回了内容
+   *
+   *  4. undefined 未定义: 只有一个undefined的值
+   *    typeof undefined "undefined"
+   *    含义: 表示访问了一个不存在的内容或者是没有初始值的内容
+   *      返回undefined 表示你想要的东西还尚且没有定义
+   *
+   *  5. null 不存在的东西(对象), 空
+   *    typeof null "object" 对象
+   *    含义: 规定这个东西不存在使用null
+   *    指向了一个不存在的空间
+   *
+   *  6. 对象类型
+   */
+  // let div = document.querySelector("body")
+  // div = null
+  // console.log(div)
+
+    // let a = "c"
+    // console.log(a)
+
+    // let str = "<\/script>"
+    //
+    // console.log(str)
+
+  // let name = "银时"
+  //
+  // let word = "大家好"
+  //
+  // let str1 = name + "说:\"" + word + "\""
+  //
+  // let str2 = `${name}说:"${word}"`
+  //
+  // console.log(str1)
+
+  // let str3 =
+  //   "<ul>\n" +
+  //   "  <li>"+ name + word +"</li>\n" +
+  //   "  <li>"+ word +"</li>\n" +
+  //   "</ul>"
+  //
+  // let str4 =
+  //   `<ul>
+  //     <li>${name}${word}</li>
+  //     <li>${word}</li>
+  //   </ul>`
+
+    // 你是否吃饭了?
+  let state = false
+
+  /**
+   * 作业: 微博发表动态的过程
+   *    上面是输入框, 输入框输入内容
+   *    按下发送,
+   *    下面会 添加 一条动态
+   *  提示: 如何获取input当前输入的内容: input.value
+   * */
+
+
+
+</script>
+
+</body>
+</html>
