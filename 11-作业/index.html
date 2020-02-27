@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 随机出一个数字(1-13) ,用户输入结果, 猜结果, 猜中 返回正确, 猜不中的话给点提示(大了还是小了)
+   * 字符串:
+   *    "正确"
+   *    "大了"
+   *    "小了"
+   * 单花色:
+   * 做一个函数: 接受用户输入的内容
+   *
+   * 随机数的生成: randomNumber
+   *  Math.floor(Math.random()*13)
+   *     Math.floor(num): 对num向下取整
+   *     Math.random(): 生成一个0-1)之间的随机小数
+   *
+   * 假如猜对了, 马上出下一题
+   *  需要改变randomNumber
+   *
+   *
+   *  Math.floor(Math.random()*13)+1 1-14的整数
+   *
+   *  Math.floor(Math.random()*14) 0-14的整数
+   *
+   */
+  let randomNumber  // 1 - 13的整数
+
+  // 生成一个随机数功能
+  function refreshRandomNumber(){
+    randomNumber = Math.floor(Math.random()*13) + 1
+  }
+
+  refreshRandomNumber()
+  // 需要生成一个不变的随机数,
+  function guessNumber(num){
+    // 注意参数是否是满足条件的参数
+    console.log(randomNumber)
+
+    if(num === randomNumber){
+      refreshRandomNumber()
+      return "正确, 请听下一题" // 如果真正执行到return 函数执行完了
+    }
+
+    if(num > randomNumber){
+      return "大了"
+    }
+
+    if(num < randomNumber){
+      return "小了"
+    }
+  }
+  //
+  // guessNumber(5)
+  // guessNumber(5)
+  let mood = "不好"
+  function foo(){
+    // mood不为好的情况
+    if(mood !== "好") return
+
+    // mood为好的情况
+    // 1000行代码
+  }
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

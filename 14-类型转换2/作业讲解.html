@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  // ![] false
+
+  // +[] 数值中的符号(number) =>  +"" 0
+
+  // +![]  +false 0
+
+  // 单独+遇到数据时候会被理解成为(正负符号)强制转数值
+  // 但是+如果挨着别的东西, 那只是加法运算符
+
+  // []+[] // "" + "" => ""
+  // {}+{} // 两边都是object
+  // {}+[]
+  // []+{} // "[object Object]"
+  // []+![] // []+false => "" + false => "false"
+  // ""+{} // "[object Object]"
+  // ({}+"") // "[object Object]"
+  // [][[]]+[] // 对象的属性一定是字符串(string)数据类型 undefined + [] => undefined + ""
+  // 1-{} NaN
+  // 1-[] 1
+  // []==[] false
+  // []!=[] true
+  // []==![] // [] == false => ("" == false) => true
+  // 1>2>3 // false > 3 => 0 > 3 => false
+  // 1<2<3 // true < 3 => 1 < 3 => true
+
+
+  // null+undefined  // NaN
+  // null+typeof undefined
+  // [1,3]&&NaN&&typeof null
+
+
+</script>
+</body>
+</html>

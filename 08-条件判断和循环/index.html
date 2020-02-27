@@ -1,0 +1,234 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+<script>
+  /**
+   * 变量: 操作主体
+   * 数据类型: 值有哪些, 具有哪些特点
+   * 函数: 打包代码可以自由在任何地方执行
+   *
+   * 控制流程.
+   *  都是单一一条线. 每个代码都会执行一次
+   *
+   *  分支: 分成两种: 选择一个执行
+   *    判断目前的状态
+   *
+   *
+   *  1. 代码块.
+   *    和函数类似, 没有函数n那么复杂, 只是相当于拿一个袋子打包我们的代码
+   *      函数: 函数名字, 函数声明, 函数传入的参数 函数输出 执行
+   *      function(){这里是代码块呢?}
+   *
+   *      代码块: 用的是大括号 {}中间放代码块
+   *        性质: 在一般情况下, 有和没有没区别
+   *
+   *  2. 选择性的执行代码: 指定选择代码的哪些部分
+   *    if (关键词) => 假如: 假设后面的条件是真的
+   *    if(条件表达式){}else{}
+   *    条件表达式: 最终的值是真的还是假的 => 布尔类型
+   *      条件表达式的值是false, 那后面挨着的代码块就不执行
+   *      if(表达式){
+   *        // code1
+   *      } else {
+   *        // code2
+   *      }
+   *
+   */
+
+  // 如果吃饭了, 执行第一段代码 否则执行第二段代码
+  // 规定: 吃饭了 true 没吃饭 false
+  //
+  let bool1 = false
+  // let bool2 = false
+
+  // if(bool1){
+  //   console.log("吃饱了")
+  //   console.log("很开心")
+  //   // if(bool2){
+  //   //   console.log("不渴")
+  //   // }
+  //   // console.log("上班!")
+  // } else {
+  //   console.log("没吃饭")
+  //   console.log("很生气")
+  // }
+
+  // if(bool1 === true){
+  //   console.log(true)
+  // }
+  // if(bool1 === false){
+  //   console.log(false)
+  // }
+
+  // 假设一个数 大于0 打印 大于0, 假设一个数小于0 打印 小于0
+  // 从来都不是你写错不会写, 而是你没有考虑清楚所有情况
+  // function check(num){
+  //   if(num > 0){
+  //     console.log("大于0")
+  //   }
+  //   if(num < 0){ // else表示所有其他情况
+  //     console.log("小于0")
+  //   }
+  // }
+  /**
+   * 小明考试: 成绩 0-100
+   *    针对小明的考试来操作
+   *    100 - 90
+   *    90 - 60
+   *
+   * */
+  let score = 100
+  if(score > 90){
+    console.log("奖励女装一件")
+  }else if(score > 60){
+    console.log("口头表扬")
+  }else{
+    console.log("作业一份")
+  }
+
+  if(score > 90){
+    console.log("奖励女装一件")
+  }
+  if(score > 60 && score <= 90){ // score大于60并且小于等于90
+    console.log("口头表扬")
+  }
+  if(score <= 60){
+    console.log("作业一份")
+  }
+
+
+
+
+
+  /**
+   * 三条路: 厕所, 三个门, 男士, 女士, 第三道门(既不是男的, 也不是女的)
+   * boy girl ???
+   * // 打印 进哪道门
+   */
+
+  let sex = "aaa"
+  // if else嵌套很糟糕, 有别的方式可以解决这个问题 => 分叉口的问题
+  // 一层一层慢慢变深了. 代码块嵌套了
+  // if(sex === "boy"){
+  //   console.log("进男厕所")
+  // }else{
+  //   if(sex === "girl"){
+  //     console.log("进女厕所")
+  //   }else{
+  //     if(sex === "???"){
+  //       console.log("进第三个厕所")
+  //     }else{
+  //       console.log("你输出的值有问题, 请检查")
+  //     }
+  //   }
+  // }
+
+  // 1. 非常扁平, 很清晰, 优秀的代码
+  if(sex === "boy"){
+    console.log("进男厕所")
+  }else if(sex === "girl"){
+    console.log("进女厕所")
+  }else if(sex === "???"){
+    console.log("进第三个厕所")
+  }else{
+    console.log("你输出的值有问题, 请检查")
+  }
+  // 也能控制分支走向: 主要控制多条分支的代码
+  // switch case break default
+  // 适用范围比较狭窄, 只适用值相等的情况
+  // if ... else 适用于 大于小于 等范围的判断
+  switch (sex) {
+    case "boy":
+      console.log("进男厕所")
+      break
+    case "girl":
+      console.log("进女厕所")
+      break
+    case "???":
+      console.log("进第三个厕所")
+      break
+    default:
+      console.log("你输出的值有问题, 请检查")
+  }
+
+
+  // if ... else ... 的小小的拓展
+  // 传入一个字符串, 获取字符串对应的标签, 从标签中获取内容, 计算, 得出是否满足条件的值
+  // function getState(str){
+  //   let input = document.querySelector(str)
+  //   // 转换成为数值, 经过一系列运算,
+  //   return true
+  // }
+
+  // 如果你不抽象函数, 就会让代码变得很复杂
+
+  // 假设有一个半径为50的圆形区域, 在 200,200位置
+  // 假设一个点 point = {x: 103, y: 55}
+
+  let point = {
+    x: 103,
+    y: 55
+  }
+  // 判断点是否在这个圆中
+  // 这什么玩意儿??
+
+  // 判断点是否在圆中的具体逻辑
+  function checkPoint(point){
+    // TODO 这是检查点是否在圆中的具体逻辑
+    return (point.x - 200)*(point.x - 200) +(point.y - 200)*(point.y - 200) < 2500
+  }
+
+  // 逻辑是: 如果点在圆内, 打印击中了啊...
+  if(checkPoint(point)){
+
+  }else{
+
+  }
+
+
+  /**
+   * 补充知识: 如何去看别人的代码?
+   *    都是由一个一个函数构成的
+   *
+   *    别人函数: 知道这个函数实现了什么功能就够了
+   *
+   *    读源码:
+   *
+   */
+
+
+  /**
+   * 1. 实现一个函数:
+   *    传入一个参数, 返回他是奇数还是偶数, 可能还有别的特殊情况
+   * 2. 实现一个函数:
+   *    传入一个数(三位数), 判断是不是水仙花数 345
+   *    水仙花数: 3*3*3 + 4*4*4 + 5*5*5 === 345 返回一个true 否者返回false
+   * 3. 猜数字: 或者猜扑克牌,
+   *    有一个函数, 接受一个参数(用户猜的数字), 函数内部有一个值(自己去定),
+   *    函数执行返回, 大了, 小了, 相等
+   *
+   *  0-100 随机整数的生成:
+   *    let randomNumber = Math.floor(Math.random()*100)
+   */
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

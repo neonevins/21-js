@@ -1,0 +1,238 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 300px;
+      height: 300px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+<div class="box"></div>
+<script>
+  /**
+   * 函数: 让代码变得更加有条理, 特定功能抽象出来
+   *  一个非常复杂的问题(函数) = 若干个简单问题(函数)
+   *  函数声明 function 函数名(){}
+   *
+   *  函数执行 函数名()
+   *
+   *  特殊值:
+   *    1. 函数的参数 一一对应,
+   *      形参: 内部接受的参数
+   *      实参: 函数传入的参数
+   *
+   *    2. 函数返回值 函数执行结束了
+   *      return 返回内容
+   *      不写会默认返回undefined
+   *
+   */
+
+  function foo(){
+    document.body.style.backgroundColor = "red"
+  }
+
+
+  // 终极目标: 把大象装冰箱
+  function openTheDoor(){
+    console.log("门开了")
+  }
+
+  function putIn(){
+    // 切片
+
+    // 打包
+
+    // 放进去
+
+    console.log("大象已经装进去了")
+  }
+  function closeTheDoor(){
+    console.log("门已经关好了")
+  }
+
+
+  function mainMission(){
+    // 开门 函数
+    openTheDoor()
+    // 放大象
+    putIn()
+    // 关门
+    closeTheDoor()
+    // 任务完成
+    console.log("Mission Complete")
+  }
+
+  // mainMission()
+
+
+  /**
+   * 箭头函数: 他可以简化函数, 函数看上去很简单
+   *  用在比较简单的函数中, 复杂函数
+   *  箭头函数表达式
+   *    为什么要有这种方法呢?
+   *      1. 语法糖: 特别甜, 特别好吃, 将以前复杂的代码转换成简单的代码
+   *        让我们的 书写成本 和 理解成本 变低了
+   *  1. 省略function
+   *  2. () 和 {} 中间添加 =>
+   *
+   *
+   *    在特殊的情况下, 甚至可以省略 return
+   *      执行代码只有return 这一行的时候
+   *        1. 将大括号改成小括号
+   *        2. 删除return
+   *      如果只有一个参数, 可以省略参数的小括号
+   */
+
+  // sum 接受两个参数, 返回他们的和
+  function sum1(a, b){
+    return a + b
+  }
+
+
+  let sum2 = function(a, b){
+    return a + b
+  }
+
+
+  let sum3 = (a, b) => {
+    console.log(666)
+    return a + b
+  }
+
+  // 传入一个数, 返回他的平方
+
+  // let foo1 = function(a){
+  //   return a*a
+  // }
+  //
+  // let foo2 = a => a*a
+
+
+
+  /**
+   * 函数声明 和 函数表达式
+   *  函数声明 单行代码以 function 开头
+   *    形如 function 名字(){} 的形式就是函数声明
+   *  函数表达式 和运算符在一起, 就变成了表达式
+   *    作为了一个表达式而存在, 函数表达式
+   *    一般情况下是不写名字的, 如果不写名字就是 匿名函数
+   */
+  // function fn1(){
+  //   console.log("fn1")
+  // }
+  //
+  // /**
+  //  * 右边看成一个对象就行了
+  //  */
+  // let fn2 = function fn3() {
+  //   console.log("fn2")
+  // }
+
+  // fn2为什么能够执行?
+
+
+  /**
+   * 函数可以返回什么?
+   *  可以返回任意内容
+   *  函数执行返回函数
+   */
+  // 创建函数的函数
+
+  /**
+   *
+   * @return {Function}
+   * 各个国家的税收比例
+   * 美国 0.05
+   * 日本 0.1
+   * 法国 0.3
+   * 根据不同的税收比例创建函数来收税
+   */
+
+  function creater(percent){
+    return function (money) {
+      return money * percent
+    }
+  }
+
+
+
+
+
+  // let am = creater(0.05)
+  // am(1000) // 50
+  // am(100)  // 5
+  //
+  // let ja = creater(0.1)
+  // ja(1000) // 100
+  // ja(100) // 10
+
+  /**
+   * 做一个加法器: 有一个初始值
+   * 传入 一个参数表示初始值
+   *  返回一个以这个初始值开始的加法器
+   */
+
+  function creatAdder(init){
+    return function(val){
+      init += val
+      return init
+    }
+  }
+
+  let newCreatAdder = init => val => {
+    init += val
+    return init
+  }
+
+  // 函数什么功能现在不重要, 我们要知道怎么简化
+  console.log(newCreatAdder(2)(3))
+
+
+  // 以0开始加
+  let adder1 = creatAdder(0)
+  console.log(adder1(2))
+  console.log(adder1(3))
+  // 以10开始的加法器
+  let adder2 = creatAdder(10)
+  console.log(adder2(-10))
+  console.log(adder2(100))
+
+
+  /**
+   * 课堂练习:
+   */
+
+  function sum4(a){
+    return function (b) {
+      return function (c) {
+        return a+b+c
+      }
+    }
+  }
+  let sum5 = a => b => c => (a+b+c)
+
+  console.log(sum5(1)(2)(3))
+
+  let box = document.querySelector(".box")
+
+  box.onclick = () => {
+    console.log(666)
+  }
+
+
+  /**
+   * 自定义属性: 针对标签的
+   *
+   */
+
+</script>
+</body>
+</html>

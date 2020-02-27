@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<div></div>
+<script>
+  /**
+   * 运算符: 相同类型
+   *  + - * / % (? :) || && !
+   *
+   *  > <  == ===
+   *  = 赋值操作 右值传递到左边(变量)
+   *
+   *  ==  比较是否相等(不区分类型, 不同类型可以转换)
+   *  === 比较是否相等(严格区分类型)
+   *  a += b   a = a + b
+   *  > < >= <=
+   *    优先转换成为数值
+   *    可以对数值类型进行比较 返回布尔类型
+   *
+   *    假如比较是字符串:
+   *    按位比较:
+   *      数字 < 大写字母 < 小写字母
+   *    字符编码: ASCII 码
+   *
+   *
+   *
+   *  JS 是一个基于原型的动态类型的弱类型的脚本语言
+   *
+   *  弱类型: 声明变量的时候不需要给定类型, 代码执行的时候灵活的改变他的类型
+   *
+   *  动态类型: 类型之间没有严格的隔离的, 使用不同的类型进行运算: 最终结果一定是6大类型之一
+   *
+   *  运算过程中进行转换: A数据类型 => B数据类型
+   *
+   *  让代码灵活简单
+   *
+   *  123 => "123"
+   *
+   *  隐式类型转换:
+   *    本质上不会改变原来的变量的值: 只是在运算的时候, 悄悄的转换成为能计算的值
+   *    只是:
+   *    基本数据类型:
+   *      数值 字符串 布尔类型 (undefined null)
+   *    复杂数据类型
+   *      对象
+   *
+   * 0 分成 0 和 -0 在某些运算的时候值可能不一样 为了区分 (3 / 0) (3 / -0)
+   */
+  // let a = 1
+  // console.log(a + "1")
+  // console.log(a)
+
+  /**
+   * 转字符串: 数据类型转换的桥梁.
+   *    加法运算符中如果有字符串参与到加法中, 将数值转换为字符串
+   *
+   *    数值类型转字符串：直接给数值加上引号
+   *      "1" + 2 + 3 // "123"
+   *      3 + 2 + "1" // "51"
+   *
+   *    布尔类型转字符串
+   *
+   *      true  => "true"
+   *      false => "false"
+   *
+   *    undefined => string
+   *
+   *      undefined => "undefined"
+   *
+   *    null => string
+   *
+   *      null => "null"
+   *
+   *    对象: 可以转成字符的
+   *      简单地理解: String() 返回字符串
+   *      eg:
+   *      String({}) // "[object Object]"
+   *      String(123) // "123"
+   *      String([1,2]) // "1,2"
+   *      分成多种情况的
+   *      1. 普通对象:
+   *        如果是手动创建的
+   *        {} => "[object Object]"
+   *        如果是自带的或者dom结构中的其他内容, 值可能不一样
+   *        原理: 任何一个对象身上都有一个toString的方法, 对象调用自己的这个方法就返回了字符串
+   *        eg:
+   *        var obj1 = {}
+   *        var obj2 = {
+   *          toString: function(){
+   *            return 123
+   *          }
+   *        }
+   *        obj1 + "" // "[object Object]"
+   *        obj2 + "" // "123" // 能证明对象转字符串本质上是调用了对象身上的toString
+   *        // 其中如果自己有, 用自己的, 没有就用系统自带的(自带的结果一般是"[object Object]")
+   *      2. 数组: [1,2,213,12,3,123,12,3]
+   *        去掉两边中括号 ,然后 拿引号包裹
+   *        [].toString === {}.toString // false
+   *        说明 转字符串的方法不一样
+   *      3. 函数:
+   *        转字符串的时候直接把代码拼接起来, 但是底层还是调用toString
+   *        eg:
+   *        var foo = function(){}
+   *        foo + "" // "function(){}"
+   *
+   *        foo.toString = () => "666"
+   *
+   *        foo + "" // "666"
+   *
+   *  转数值类型:
+   *    String强制转换成为 数值类型
+   *      字符串转数值: - * /
+   *      "123" - 0 // 123
+   *      如果字符串看上去像数值, 那么就可以直接转数值
+   *      如果转不了 结果就是 NaN
+   *
+   *      其中: Number("") // 0
+   *   布尔类型
+   *      true => 1
+   *      false => 0
+   *
+   *   undefined
+   *      undefined => NaN
+   *   null (重要)
+   *      null => 0
+   *      Number(null) // 0
+   *   Object
+   *      普通对象: 一般是不能转换成为数值的
+   *      其实会去尝试执行valueOf的方法, 如果不行, 退而求其次, 再去调用toString
+   *      let o = {
+
+            valueOf: function () {
+              return 4
+            },
+            toString: function () {
+              return 3
+            }
+          }
+          console.log(Number(o)) // 4 因为 valueOf优先
+   *
+   *      但是在代码底层中还是调用的是toString的方法
+   *      var obj = {
+   *        toString: function(){
+   *          return 123
+   *        }
+   *      }
+   *      Number(obj) // 123
+   *      但是: 如果返回不是数值那么他会再试一次
+   *      var obj2 = {
+   *        toString: function(){
+   *          return "123"
+   *        }
+   *      }
+   *      Number(obj) // 123 "123" => 123
+   *
+   *
+   *   数组:
+   *      先toString转字符串
+   *      然后尝试字符串转数值
+   *   函数:
+   *      转不了
+   *
+   *
+   * 转布尔类型:
+   *   "" 0 NaN undefined null false 这是会转成为false的
+   *   其余为 true
+   *
+   *
+   */
+
+
+  /**
+   * 拓展:
+   *  document.body  body标签
+   *  document.documentElement html标签
+   */
+</script>
+</body>
+</html>

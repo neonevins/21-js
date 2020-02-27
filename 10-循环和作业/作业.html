@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+
+  /**
+   * 实现一个函数: 工具, 封装函数,
+   *
+   * 1. 判断奇数偶数:
+   *  输入一个数: 假如不是一个数, 是字符串 其他的数据类型怎么办?
+   *    是奇数(odd): 返回 false
+   *    是偶数(even): 返回 true
+   *  如果你输入的不是一个数值类型, 我们就该"报错"
+   *    主动报错: 抛出一个异常, 抛出一个错误
+   *      console.error() 打印一个错误
+   *      console.warn() 打印一个警告
+   *
+   *      throw new Error("输入的数不是一个数值")
+   */
+  // console.error("错误")
+  // console.warn("警告")
+  // throw new Error("报错")
+  // console.log("末尾代码")
+
+  //checkNumber oddOrEven
+
+  /**
+   * 判断一个数是不是偶数
+   * @param num
+   * @return {boolean}
+   */
+  function isEven(num) {
+    if (typeof num !== "number") throw new Error("传入的num应该是数值")
+    return num % 2 === 0
+  }
+
+  /*
+    首先是三位数, 个位三次方+十位三次方+百位三次方 = 数本身
+    abc = a*a*a + b*b*b + c*c*c
+   */
+  /**
+   * 判断传入的三位数是不是水仙花数
+   * @param num
+   * @return {boolean}
+   */
+  function isNarcissus(num) {
+    if (typeof num !== "number") throw new Error("传入的num应该是数值")
+    // ... 自己完善是否是整数 是否负数 是否是三位数...
+    // 分别搞出个位 十位 百位
+    let ge = num % 10
+    let shi = (num - ge) / 10 % 10
+    let bai = parseInt(num / 100)
+    return num === ge * ge * ge + shi * shi * shi + bai * bai * bai
+  }
+
+  for (let i = 100; i < 1000; i++) {
+    if (isNarcissus(i)) {
+      console.log(i)
+    }
+  }
+
+
+  // 变量表示高兴(true)还是不高兴(false)
+  // let isHappy = false
+  //
+  // // 假如 是 偶数 , 就
+  // if(isEven(123)){
+  //   //
+  // }
+
+
+</script>
+</body>
+</html>

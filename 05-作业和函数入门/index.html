@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<input type="text">
+<input type="button" value="提交">
+<ul class="list">
+<!--  <li>银时说: </li>-->
+</ul>
+<body>
+  <script>
+    /**
+     * 输入, 点击提交在列表中添加一条数据
+     *
+     * var a = 3
+     * a = a + 3
+     * a += 3 含义和 a = a + 3完全一致
+     */
+    let input = document.querySelector("input[type=text]")
+    let button = document.querySelector("input[type=button]")
+    let list = document.querySelector(".list")
+
+    button.onclick = function () {
+      // val是输入的内容, 这个只有在点击的时候才能获取的
+      // 每次输出的内容都要添加到最前面
+      // 获取输入内容
+      // 抄下来他的文本
+      let val = input.value
+      // 制作可以添加的文本
+      let text = `<li>银时说: ${val}</li>`
+      // 将文本添加到页面中
+      list.innerHTML = text + list.innerHTML
+      // 清空之前的输入的内容
+      input.value = ""
+
+      // list.innerHTML += `<li>银时说: ${input.value}</li>`
+    }
+
+    /**
+     * 什么样的代码才是好代码?
+     *  1. 是和长度有关的嘛? 不是的
+     *  2. 可维护性: 易读易修改
+     *  代码的粒度 => 颗粒程度
+     */
+
+
+  </script>
+</body>
+</html>

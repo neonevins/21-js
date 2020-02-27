@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<div class="table"></div>
+<script>
+  /**
+   * 99乘法表:
+   *  1*1 = 1
+   *  1*2 = 2 2*2 = 4
+   *
+   *
+   */
+  let length = 30
+  let table = document.querySelector(".table")
+
+  /**
+   * i: 行 乘号右边的数
+   * j: 列 乘号左边的数
+   */
+  function createExpression(left, right){
+    let color
+    if((left+right)%2===0){
+      color = "#aaa"
+    }else{
+      color = "#ddd"
+    }
+    return `<span style="
+      display:inline-block;
+      width: 60px;
+      padding:5px;
+      border:1px black solid;
+      background: ${color};
+      ">${left}*${right}=${left * right}</span>`
+  }
+
+  let str = ""
+  for (let i = 0; i < length; i++) {
+    for (let j = 0; j < length; j++) {
+      let left = j + 1
+      let right = i + 1
+      // 当left的值大于right的值得时候就不添加html
+      if (left <= right) {
+        // 添加公式
+        str += createExpression(left, right)
+      }
+    }
+    str += `<br>`
+  }
+  table.innerHTML = str
+
+</script>
+</body>
+</html>

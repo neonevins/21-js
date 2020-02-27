@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<ul>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+<script>
+  /**
+   * 类型转换: 不同类型运算, 转换相同的类型
+   *  number string boolean undefined null object
+   *
+   *  转字符串: String
+   *    数值, undefined, 布尔类型, null: 直接加引号
+   *    object
+   *      数组: 去掉中括号, 左右加引号
+   *      函数: 直接加引号写出来
+   *      对象: (手动写出来的对象)
+   *        对象.toString() 底层逻辑,
+   *        奇怪的操作
+   *  转数值: (只有两种结果: 真正的值, NaN) Number
+   *    字符串转数值:
+   *      true => 1
+   *      false => 0
+   *      undefined => NaN
+   *      null => 0
+   *    对象:
+   *      函数 => NaN
+   *      数组 => 单项有值, 单项那个能转数值, 其余 NaN
+   *      一般对象:
+   *        valueOf  高
+   *          一般情况下: valueOf 返回值是他自己
+   *        toString 低
+   *  转布尔类型: Boolean
+   *    只有几个假值, 其余都是真值
+   *    "" NaN false undefined null 0
+   *
+   *    任何对象他的布尔类型都为true. {} [] 函数 没有理由转, 因为他们是对象
+   *
+   *  比较:
+   *    相等: ==
+   *
+   *
+   *    全等: === (不会进行类型转换, 直接比较)
+   *      1. 简单数据类型: 类型必须一致,值也要一致, 可以存在转换
+   *      2. 对象和对象比较:
+   *        永远查询对象是否是同一个对象, 只要不是通过赋值传递的对象, 那么他们就不相等(不管 == 还是 ===)
+   *        内存地址的比较:
+   *          简单数据:
+   *            其余 将数据原封不动的抄下来
+   *          复杂数据:
+   *            对象: 访问的是相同的一个内存区域, 对象到底指向谁
+   *
+   */
+
+  // let str_a = 3
+  // let str_b = str_a // 抄作业的过程
+  // str_a = 4
+  // console.log(str_b)
+
+
+
+  // let obj_a = {
+  //   val: 3
+  // }
+  // let obj_b = obj_a // 将obj_b指代成了那个对象
+  // obj_a.val = 4
+  // console.log(obj_b)
+
+  // let o = {
+  //   a: 1
+  // }
+  // let a = b = o
+  // function change(obj){
+  //   o.a = 3
+  //   b = {
+  //     a: 2
+  //   }
+  // }
+  // change(o)
+  //
+  // console.log(a.a, b.a) // 3 2
+
+
+  // let obj1 = {x:5}
+  // let obj2 = obj1
+  //
+  // // 1. 改变obj1的指向
+  // // 连等号, 直到所有的内容走完才能变更完成
+  // // 没有运行完的时候都是在修改第一个对象
+  // obj1.a = obj1 = {x:6}
+  // // 这行代码之后 obj1才指向{x:6}, 所以之前就都在操作{x:5}
+  //
+  // console.log(obj1, obj2)
+  // console.log(obj1.a) // undefined
+  // console.log(obj2.a) // {x: 6}
+
+
+
+
+
+  // let arr = ["A", "B", "C"]
+  // arr arr.length 数组的长度,
+  // 挨个的对这个数组操作: 遍历
+
+  // for循环可以进行数组遍历
+  // for(let i = 0; i < arr.length;i++){
+  //   console.log(arr[i])
+  // }
+
+
+  // while
+  // 下标
+  // let index = 0
+  // // 一旦数组里面访问到了undefined就直接跳过
+  // while(arr[index]){
+  //   console.log(arr[index])
+  //   index++
+  // }
+
+  // let index = arr.length //3
+  // while(index){
+  //   console.log(arr[--index])
+  // }
+
+  function foo(index){
+    // 有传用传, 没传给1, (会, 假如传的是假值)
+    index = index || 1
+  }
+
+
+
+
+
+  // const liList = document.querySelectorAll("li")
+  // const arr = [
+  //   {a: 1},
+  //   {b: 2},
+  // ]
+
+    // let obj = {
+    //   toString: function () {
+    //     return "123"
+    //   }
+    // }
+    // let str = "123"
+    // if(obj == str){ // == 表示可以进行类型转换
+    //   console.log("相等")
+    // }
+
+  // 假设: obj
+  // 构造 obj 使得
+    // toString 这个方法执行了几次?
+    // let obj = {
+    //   index: 0,
+    //   toString: function () {
+    //     obj.index++
+    //     return obj.index
+    //   }
+    // }
+    //
+    // // A && B 先判断 A为真 返回B 的结果
+    // // JS 单线程
+    //
+    // if((obj == 1) && (obj == 3) && (obj == 2) && (obj == 4)){
+    //   console.log("判断成功")
+    // }
+    // console.log(obj.index)
+
+
+</script>
+</body>
+</html>

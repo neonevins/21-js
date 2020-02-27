@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<div class="box" aaa="bbb" data-age="19" data-name="银时"></div>
+<!--<input type="text" value="asd">-->
+<script>
+  // 创建的时候获取了值, 咱们别改变了
+  const BOX = document.querySelector(".box")
+  const INPUT = document.querySelector("input")
+
+  // BOX.aaa = "ccc"
+  // console.log(BOX.getAttribute("class"))
+  // BOX.setAttribute("aaa", "ccc")
+  // console.log(BOX.getAttribute("aaa"))
+
+  // console.log(BOX.dataset) // 这个对象直接接管了所有的data-的属性
+  // BOX.dataset.age = "20"
+
+  // console.log(INPUT.value)
+  // 标签自定义属性不能直接通过.的方式获取
+  // 标签.getAttribute(属性名)
+  // 真正控制标签的属性
+
+  // data-的属性
+
+
+
+</script>
+</body>
+</html>

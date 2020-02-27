@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * while 和 do...while这两个东西: 他们可以理解成for循环的变种
+   * while(表达式A){ // 表示循环的结束状态 true: 继续下一次, false: 立马结束
+   *  B
+   * }
+   * A => B => A => B ... => A(false)
+   * 比for循环少了初始值, 和 循环状态变更
+   *
+   * 任何for循环的代码都可以改成 while的代码
+   *
+   * for(A;B;C){
+   *   D
+   * }
+   * =>
+   * A;
+   * while(B){
+   *   D;
+   *   C;
+   * }
+   *
+   * while 一定都能转换成为 for循环吗? 不是的
+   *  循环次数未知的时候是不行的
+   *  while(A){
+   *    B
+   *  }
+   *  A => B => A => B => ... => A
+   *  最短: A
+   *
+   *  do ... while
+   *
+   *  do{
+   *    B
+   *  }while(A)
+   *  B => (A => B) => A => B ... A
+   *  最短: B => A
+   */
+  // function 反复分析(){
+  //   console.log("反复分析")
+  // }
+  //
+  // while(true){
+  //   反复分析()
+  // }
+
+
+
+
+</script>
+</body>
+</html>

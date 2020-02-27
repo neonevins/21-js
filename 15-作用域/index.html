@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 作用域: 非常重要: 很多代码都不知道是为什么这么运行的
+   *
+   *    暗号: 某些话, 在某些环境中才能有特殊的含义, 需要有环境
+   *
+   *  JS中代码, 变量生效是有一定的范围的. 作用域
+   *    作用域: 变量的生效范围,
+   *
+   *  什么叫做域: 有哪些作用域
+   *  变量该拥有哪个作用域?
+   *    原理: 变量在哪个作用域范围内被声明, 他就拥有这个作用域, 作用域不能够对外延伸
+   *
+   *    1. 全局作用域: 整个页面(网页)中JS代码都可以访问的范围
+   *      从网页打开, 到网页关闭一直存在的作用域
+   *    2. 块级作用域: 代码块, 如果这个变量只能在这个代码块里面生效, 那个这个变量
+   *      拥有块级作用域
+   *    3. 函数作用域: 在函数范围之内生效的变量, 拥有函数作用域
+   *
+   *    全局作用域 > 块级作用域 , 函数作用域
+   *
+   *    块级作用域  同级
+   *    具体谁包裹谁看情况讨论
+   */
+
+  function fn(){
+    let a = 1
+    {
+      console.log(a)
+    }
+  }
+
+  {
+    let b = 2
+    function fnn(){
+      console.log(b)
+    }
+    fnn()
+  }
+
+
+
+  // {
+  //   let a = 1
+  //
+  // }
+  // console.log(a)
+
+  // let a = 1
+  // function foo(){
+  //   console.log(a)
+  // }
+  //
+  // foo()
+  // console.log(a)
+
+  let a = 3
+
+  {
+    console.log(a)
+  }
+
+
+
+  // console.log(a)
+</script>
+<!--<script src="./index.js"></script>-->
+<!--<script>-->
+<!--  console.log(a)-->
+<!--</script>-->
+</body>
+</html>
+

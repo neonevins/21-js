@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 变量在作用域中的特点:
+   *    let 和 var 和 const 之间的区别
+   *
+   *    var (ES5)
+   *      1. 会忽略块级作用域, 自动上升到上一层作用域,
+   *        但是还是受制于函数作用域
+   *
+   *    let 和 const (ES6)
+   *      1. 识别块级作用域, 识别函数作用域
+   *
+   * 作用域的访问:
+   *    变量的访问角度
+   *    当代码中出现一个变量的时候, js是怎么找到这个变量以及他的值得
+   *    首先会在自己的作用域中查询, 如果查询到, 就用这个值, 如果查询不到?
+   *    会去上一级找, 重复直到全局作用域, 如果还没找到, 抛出一个错误
+   *
+   *    作用域是有很多的, 一层一层包裹的, 变量会在作用域中一层一层往上寻找变量
+   *    寻找方式就是作用域链.
+   *     
+   *    作用域是在声明阶段就已经确定下来了
+   *    函数声明的时候写在哪里, 作用域就确定在了哪里, 和函数的执行位置没有关系
+   *
+   */
+
+  // function fn(){
+  //   let val = 123
+  //   {
+  //     let val=""
+  //     console.log(val)
+  //   }
+  // }
+
+  // var a = 6
+  // function foo3(){
+  //   let a = 3
+  //   let b = 4
+  //   function foo4(a){
+  //     function foo5(){
+  //       console.log(a)
+  //     }
+  //     return foo5 
+  //   }
+  //   return foo4(b)
+  // }
+  // let foo5 = foo3(a)
+  // // foo5 就是 foo4
+  // foo5(a)
+
+  // foo5和foo5()是一样的嘛?
+
+
+  // function say(word){
+  //   console.log(word)
+  // }
+  // say("你好")
+
+
+  // let a = 1
+  // function foo2(){
+  //   console.log(a)
+  // }
+  // function foo1(){
+  //   let a = 3
+  //   foo2() // 这就是一个表达式
+  // }
+  // foo1()
+
+
+
+
+
+  // function foo(){
+  //   let val = 123
+  //   {
+  //     let val = 456
+  //   }
+  //   console.log(val)
+  // }
+  //
+  // foo()
+
+
+
+  // function foo(){
+  //   var var_a = 123
+  //   let let_a = 456
+  // }
+  //
+  // console.log(var_a)
+  // console.log(let_a)
+
+
+  /*
+    立执行函数: 
+      声明函数和执行是分开的
+
+      写上函数 小括号包裹, 再加括号执行
+
+      作用吧?
+
+      1. 外界能不能访问函数的内容
+
+      2. 函数还是被人拿得到: 
+        只执行一次, 执行完成就没人知道他在哪里
+
+      3. 函数甚至没有名字, 就不会出现重名的现象, 保证 独立 和 完整
+
+
+      你不能这么写, 不能这么写 ... 
+
+      试错: 
+
+      1. 实现功能
+
+      2. 功能优化()
+        结构 性能 可读性 可维护性 可拓展性
+    
+      3. 设计架构 
+  */
+
+    ;(function(){
+      var money = 100
+
+      function addMoney(){
+        money++
+        console.log(money)
+      }
+      addMoney()
+    })()
+
+
+
+
+
+  // let a = 3
+  // let b = (function(a){
+  //   console.log(a)
+  //   return 123
+  // })(a)
+
+  // ;(function(){
+  //   console.log(2)
+  // })()
+
+  // var a = (function(){
+
+  // })
+  // a()
+  
+
+
+</script>
+</body>
+</html>

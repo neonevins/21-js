@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 输入 string => number
+   *    运算符 类型转换
+   *
+   * 运算符:
+   *   + 数值(求和) 字符串(拼接) ...
+   *   - 只能是数值类型
+   *   * 只能是数值类型
+   *   / 只能是数值类型
+   *   % 只能是数值类型
+   *    判断奇偶(%2) 取个位数(%10) 轮回(%n)
+   *   正常情况下: 运算符两边数据类型一致
+   *
+   *   % * / 优先 + -
+   *
+   * 运算符优先级: 高级的运算符 先于低级运算符两边的运算,
+   *    改变运算符的优先级: 加括号 只能有小括号
+   *    一旦你不知道优先级: 最好加上括号
+   *
+   */
+  /**
+   * 表达式: 能返回结果的东西
+   *
+   * 三目运算符: 三个部分构成: A B C
+   *    A?B:C
+   *    如果A为真 返回 B;如果A为假 返回C
+   *
+   *    B和C只能是表达式, 不能是带分号的语句
+   *
+   *    if(A){
+   *      B1;
+   *      B2
+   *    }else{
+   *      C
+   *    }
+   *
+   *    A?(B1,B2):C
+   *    封装成自己实现的函数
+   *    function threeMeshOperation(A, B, C){
+   *      if(A){
+   *        return B
+   *      }else{
+   *        return C
+   *      }
+   *    }
+   *
+   *
+   */
+  // let isHappy = true
+  // let word = ""
+  // if(isHappy){
+  //   word = "我很高兴"
+  // }else{
+  //   word = "我不高兴"
+  // }
+  // console.log(word)
+
+  // let isHappy = true
+  //
+  // function say1(){
+  // }
+  //
+  // function say2(){
+  //   return "2"
+  // }
+  //
+  // function getIfHappy(){
+  //   return isHappy
+  // }
+  //
+  // let word = ""
+  // word = getIfHappy()?say1():say2() // 一旦参与一次运算得出一个答案, 抄下来
+  //
+  // isHappy = false
+  //
+  // console.log(word)
+
+
+  /**
+   * 逗号运算符:
+   *    ,
+   *    分隔符号, 传参: 函数参数: 数组 变量声明, 批量声明使用逗号
+   *    挨个执行一遍:
+   *      A, B 先执行完成A 在执行B , 最终B 将作为整体表达式的返回结果
+   *
+   *   逗号运算符非常强大: 类似于代码语句中的分号
+   *      所有的代码无条件的写成一行,(用一个非常长的表达式实现所有的代码的功能,
+   *      代码压缩其实也是从这个地方出发的)
+   */
+  // let a = 1,
+  //     b = 2,
+  //     c = 3
+  //
+  //
+  //
+  // function foo(a, b, c){
+  //   let arr = [1, 2, 3]
+  // }
+  //
+  // foo(1, 2, 3)
+
+
+
+  /**
+   *
+   * 与 或 非:
+   * 目标都是得出一个布尔类型值:
+   *   与(&&):  指的就是 and 并且 : 两个条件同时满足 才为真
+   *   A && B 代码底层是怎么算出结果
+   *     A 为真返回 B
+   *     A 为假返回 A
+   *   在判断中: 为假不一定只有 false
+   *   其他的数据类型都可以参与到与运算符 都有布尔类型的对应值
+   *   0 NaN null undefined "" false 他们在布尔类型中对应的值是false
+   *   他能不能转换成为我们之前学过的东西? 三目运算符.
+   *   A && B <=====> A ? B : A
+   *  实际用处
+   *
+   *
+   *  或(||): 只要有一个为真, 就返回真, 两个都为假,才返回假
+   *    A || B
+   *      A 为真返回 A
+   *      A 为假返回 B
+   *   遇到真的返回, 否则一直往后面找
+   *
+   *   A || B <======> A ? A : B
+   *
+   *
+   *   与或运算符走到一起怎么办?
+   *    1. 如果已经达到了可以返回的内容(或里面遇到了真, 与里面遇到了假)直接返回, 后面的内容不会运算的
+   *    2. 与 > 或 从左往右
+   *    3. 惰性判断法则: 已经能得出结果, 绝对不会编译执行后面代码
+   *
+   *
+   *  非运算符:
+   *    一元运算符: 对一个值运算:
+   *    !A 取反, 并且强制返回布尔类型
+   *    !0 // true
+   *    !false // true
+   *    !"" // true
+   *
+   *    !1 // false
+   *
+   *    会返回布尔类型, 但是绝对不会改变原始数据
+   *
+   *
+   *    简单的转换成布尔类型的方法: !!A 强制性的转换成布尔类型
+   *    相当于 Boolean(A)
+   */
+  // 接受两个参数: 返回他们的乘积
+  // 搞一个默认值?
+  function times(a, b){
+    // 默认值的提供, 问题: 如果传入值有可能是为假类型的值, 就不能用这个方法.
+    if(b !== 0 ){
+      a = a || 1
+      b = b || 1
+    }
+
+    return a * b
+  }
+
+
+  let o = {
+    a: {
+      b: {
+        c: 123
+      }
+    }
+  }
+
+  // console.log(o.a.c.b) // 既然访问不到, 直接返回undefined 不要报错
+  //
+  // console.log( o && o.a && o.a.b && o.a.b.c)
+
+  // console.log(o.d.e)
+
+  // console.log(o && o.b && o.b.c)
+
+  // let find = document && document.querySelector // 这一行代码有可能报错
+
+
+</script>
+</body>
+</html>

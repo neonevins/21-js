@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<div>按钮</div>
+<script>
+  /**
+   * 任何数据都是某一个数据类型
+   *  如果说他不是一个简单的数据类型(number string boolean undefined null)
+   *  那他就是object
+   *
+   *  在JS中, 万物皆对象
+   *
+   *
+   * 函数: 非常重要, 贯穿整个js的学习
+   *    在某些地方不好理解.
+   *   1. 什么是函数? 将一系列多个代码打包到一起的一个整体: 函数, 袋子里面装的是执行的代码,
+   *    抽象的过程: 将一个非常复杂的问题, 分解成为多个弱一点的问题, .... 直到问题被解决
+   *    要把大象装冰箱? 一共分几步? 三步: 1开门 2. 放进去 3. 关门
+   *
+   *   2. 函数的声明: 定义一个函数, => 类比成为声明一个变量
+   *    function 函数的名字(){}
+   *    let/var 变量名字
+   *      给函数添加代码: alert(666)
+   *      请必须写到大括号中
+   *   3. 函数的使用: 函数执行
+   *    函数的名字()
+   *
+   *  函数就是一个对象, 然后他是一个特殊的对象,他可以执行
+   *    函数是JS中的一等公民: 他在参与处理执行相互作用的时候永远是最优先考虑的
+   *
+   *    函数和函数执行一定要区分出来
+   *      能不能加括号才能判断是不是函数
+   *      dance() 函数执行
+   *      dance   函数
+   *  比如点击事件:
+   *    盒子.onclick = 函数
+   */
+  let div = document.querySelector("div")
+
+  function dance(){
+    alert(666)
+    console.log(666)
+  }
+  /**
+   * 点击div盒子执行dance函数 怎么写?
+   *
+   * 可以直接用 dance这个名词指代这个函数
+   */
+
+  // div.onclick = undefined
+
+  div.onclick = dance
+  // div.onclick = function () {
+  //   alert(666)
+  //   console.log(666)
+  // }
+  // console.log(666)
+  /**
+   * 函数的一些额外细节:
+   *   我们遇到过什么函数? 可以从小括号中判断这个东西是不是函数
+   *   console.log alert document.querySelector ...
+   *
+   *   函数的输入和输出:
+   *      输入: 给函数传入内容(输入) 让函数在特定情况下执行
+   *       传参:
+   *        函数外部执行的时候传入参数: 实(际的)参(数)
+   *        函数内部就应该接受这个参数:
+   *          在函数声明的位置中的小括号里面写上变量接受这个参数
+   *          变量不需要声明, 这个变量就是 形参: 形状位置非常相似
+   *        写到小括号中
+   *        参数可以传几个? 任意
+   *          1. 实参和形参按位置一一对应的
+   *          2. 如果实参比形参多, 多得部分会舍弃
+   *          3. 实参比形参少, 虽然没有接受参数, 但是变量还是声明了
+   *      输出: 表示的是函数的执行结果
+   *        用 return 表示 : 返回值:
+   *        只有在函数内部才有意义
+   *        默认情况下: 函数返回 undefined
+   *        函数一旦返回了内容, 函数就执行完了, 后面就不执行了
+   *  和 数学中的函数有什么关系
+   *    数学中的函数: 自变量x 函数转换 y
+   *
+   *    js函数 在这里是一样的
+   *
+   *  任何代码都是有返回值得
+   */
+  /**
+   * 传入一个数字, 在控制台中打印 这个数字的平方
+   */
+  // function foo(a, b, c){
+  //   console.log(a, b, c, d, e)
+  // }
+  //
+  // foo(1, 2, 3)
+
+  // function sum(a, b, c){
+  //   // console.log(a + b + c) // 在控制台中打印
+  //
+  //   return 123
+  // }
+  //
+  // sum(1, 2, 3)
+
+  // function pingfang(x){
+  //   return x*x
+  // }
+
+  /**
+   * 这是冰山一角:
+   *  默认参数 作用域 闭包 this 构造函数 立即执行 匿名函数 箭头函数 偏函数 函数柯里化...
+   */
+
+
+</script>
+</body>
+</html>

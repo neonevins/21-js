@@ -1,0 +1,208 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<div>这是一段文字</div>
+<script>
+  /**
+   * if else 选择: 重要
+   *    判断条件: 执行不同的代码, 灵活 做不同的事情
+   *    boolean true / false
+   *    1.
+   *    if(boolean){
+   *
+   *    }
+   *    2.
+   *    if(boolean){
+   *
+   *    }else{
+   *
+   *    }
+   *
+   *
+   *    else if(){
+   *
+   *    }else if(){
+   *
+   *    }else {
+   *
+   *    }
+   *
+   *    switch(变量){
+   *      case 值:
+   *        // ...
+   *        break
+   *      case 值:
+   *        ...
+   *
+   *      default: // 默认值, 最后的值
+   *    }
+   *    ==  : 会类型转换
+   *    === : 不会转换, 只要有一丁点不一样就不相等
+   *
+   *    input.value
+   *    生成的数值比较 ===
+   *
+   *    值:
+   *    操作: 操作完成也会返回值
+   *
+   *
+   *
+   * 循环: JS
+   */
+
+
+  /**
+   * 循环: JS 进行 大量的重复操作 所需要写的代码
+   *
+   * 例子:
+   *  我需要在 body 标签中添加 50 个 div标签.
+   *
+   *
+   *
+   *  1. for <=> 循环 关键词
+   *    for(A; B; C){
+   *      D
+   *    }
+   *
+   *  知道循环了多少次. 有限次数的循环
+   *    我们怎么去规定循环结束这样的情况
+   *      for(循环的相关参数)
+   *      括号里面有且只有两个分号 ;
+   *      可以被分成三个部分的
+   *    语法:
+   *      像if for 是不是函数?
+   *      if(){
+   *
+   *      }
+   *      语法模型:
+   *      for(A;B;C){
+   *        // D: 循环主体
+   *      }
+   *
+   *      死循环: 表示循环没有办法结束, 遥遥无期
+   *
+   *      B: 非常重要(必须要写): 循环结束条件 数据类型: 布尔类型 true/false
+   *        false : 表示循环结束
+   *        true : 表示继续下一次循环
+   *
+   *      A: 可以不写
+   *        规定状态初始值: 循环的初始状态
+   *
+   *      C: 可以不写
+   *        单次循环主体结束之后, 修改循环结束状态, 在某些特殊情况下, 循环结束
+   *
+   *
+   */
+  // let body = document.querySelector("body")
+  //
+  // body.innerHTML += "<div></div>"
+
+  // for(;true;){
+  //   console.log(666)
+  // }
+
+
+
+  // for(let state = true;state;state = false){
+  //   console.log(123)
+  // }
+
+  // 循环50 次怎么办?
+  // 拿一个变量 i 记录 循环的次数
+  // i 值 就是 0
+  // i++ 指的是 i 从原来的基础之上增加1 i = i + 1; i += 1;
+
+  // 只需要通过观察 length 知道循环执行了多少次
+
+  // 标准写法: 程序中数数 是从 第0 次开始的
+
+  // i-- i++ ++i --i
+
+  // 循环次数
+  // let length = 50
+  //
+  // for(var i = 0; i < length; i++){
+  //   console.log("循环执行")
+  // }
+  // console.log(i)
+
+  // for(A;B;C){
+  //   D
+  // }
+
+  // A => (B => D => C) => (B => D => C) ... B
+  // 最终循环 循环结束之后 循环变量i 最终值是 循环次数
+
+  // X => Y => Z => X => Y => Z ...
+  //
+
+
+  // i-- i++ ++i --i
+  // 在正常情况下: i++ ++i 他们是没啥区别的
+
+  // i++ 先返回i 再++
+  // ++i 先++ 再返回i
+  // 做开发的时候: 请不要写出, 这种代码.
+  // let a = 3
+  // console.log((a++) + (++a) + (++a)) // 3 + 5 + 6 = 14
+  // // console.log(a) // 6
+  // console.log((a++) + (++a) + (++a)) // 6 + 8 + 9 = 23
+
+  // console.log(a + (a++)) // 6
+  // console.log(a) // 4
+  // console.log((a++) + a)
+  // 4 + 5 = 9
+
+  // console.log(++a)
+  // console.log(a)
+
+  // for循环进行确定次数的循环 =>
+
+  // 循环嵌套
+
+  // 请注意: 循环变量: 每个循环体都要有各自的循环变量: i,j,k,m,n
+  // 作业: 做一个: 9*9 乘法表
+
+  // for循环的跳过与终止:
+  /**
+   * continue for循环内部关键字: 如果执行到continue 那么直接跳过循环体,
+   *
+   * break 手动终止for循环 直接结束, 后面的都不执行了
+   */
+
+  // for(var i = 0;i < 50;i++){
+  //   // 42 号 是 人不在, 我们如何跳过这个人
+  //   if(i === 42) {
+  //     break
+  //   }
+  //   console.log(i)
+  // }
+
+  // break 只会跳过最近的那层for循环, 外层需要别的方法
+  // labelA: 循环块 单独起名 然后给内部的break 打断
+  for(let i = 0;i < 10;i++){
+    for(let j = 0;j < 5;j++){
+      if(i === 3 && j === 2){
+        break
+      }
+      console.log(i, j)
+    }
+  }
+
+  // 第二份作业: 做一个国际象棋棋盘: 9 * 9 用到 continue / break
+
+  /**
+   * var num = 456
+   */
+
+
+</script>
+</body>
+</html>
